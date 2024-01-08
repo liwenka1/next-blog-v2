@@ -5,7 +5,7 @@ const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="mx-auto flex h-full w-full max-w-3xl flex-col justify-between">
       <Header />
-      <main className="my-8 flex-1">{children}</main>
+      <main className="prose dark:prose-invert my-8 flex-1">{children}</main>
       <Footer />
     </div>
   )
