@@ -1,10 +1,8 @@
-import { Button } from '@/components/ui/button'
-
 const Footer = () => {
   return (
-    <div>
-      <Button>Footer</Button>
-    </div>
+    <footer className="border-t py-4">
+      <span>Copyright © 2024 | All rights reserved by @ Li WenKai</span>
+    </footer>
   )
 }
 

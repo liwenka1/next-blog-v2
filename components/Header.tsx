@@ -1,10 +1,16 @@
-import { Button } from '@/components/ui/button'
+'use client'
+
+import Link from 'next/link'
+
+import { Site } from '@/content/config'
+import Nav from './nav'
 
 const Header = () => {
   return (
-    <div>
-      <Button>Header</Button>
-    </div>
+    <header className="flex items-center justify-between border-b py-8">
+      <Link href="/">{Site.title}</Link>
+      <Nav />
+    </header>
   )
 }
 
