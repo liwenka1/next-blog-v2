@@ -3,19 +3,33 @@ import rehypePrismPlus from 'rehype-prism-plus'
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
-  filePathPattern: `**/*.mdx`,
+  filePathPattern: `posts/**/*.mdx`,
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
-    date: { type: 'date', required: true }
+    date: { type: 'date', required: true },
+    description: { type: 'string', required: true }
   },
   computedFields: {
-    url: { type: 'string', resolve: (post) => `/posts/${post._raw.flattenedPath}` }
+    readingTime: { type: 'json', resolve: (doc) => doc.body.raw },
+    slug: {
+      type: 'string',
+      resolve: (doc) => doc._raw.flattenedPath.replace(/^.+?(\/)/, '')
+    },
+    path: {
+      type: 'string',
+      resolve: (doc) => doc._raw.flattenedPath
+    },
+    filePath: {
+      type: 'string',
+      resolve: (doc) => doc._raw.sourceFilePath
+    },
+    toc: { type: 'string', resolve: (doc) => doc.body.raw }
   }
 }))
 
 export default makeSource({
-  contentDirPath: 'posts',
+  contentDirPath: 'data',
   documentTypes: [Post],
   mdx: { rehypePlugins: [[rehypePrismPlus, { ignoreMissing: true }]] }
 })
