@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 
-import { Site } from '@/content/config'
+import { Site } from '@/data/config'
 import Nav from './nav'
 
 const Header = () => {

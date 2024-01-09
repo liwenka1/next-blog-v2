@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { Navs } from '@/content/config'
+import { Navs } from '@/data/config'
 import ModeToggle from './mode-toggle'
 import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
